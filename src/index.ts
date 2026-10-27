@@ -14,6 +14,7 @@ import { CropNode } from './nodes/geometry/CropNode';
 import { ResizeNode } from './nodes/geometry/ResizeNode';
 import { FlipNode } from './nodes/geometry/FlipNode';
 import { RotateNode } from './nodes/geometry/RotateNode';
+import { MontageNode } from './nodes/geometry/MontageNode';
 import { GaussianBlurNode } from './nodes/filter/GaussianBlurNode';
 import { ImageMathNode } from './nodes/math/ImageMathNode';
 import { FITSHeaderNode } from './nodes/fits/FITSHeaderNode';
@@ -37,6 +38,7 @@ const nodes = [
     new ResizeNode(),
     new FlipNode(),
     new RotateNode(),
+    new MontageNode(),
     new GaussianBlurNode(),
     new ImageMathNode(),
     new FITSHeaderNode(),

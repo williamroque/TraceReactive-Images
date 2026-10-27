@@ -15,8 +15,9 @@
     {
       "id": "images:image-array",
       "label": "Image Array",
+      "elementType": "images:image",
       "color": "#d97706",
-      "compatibleWith": ["core:any", "core:data"]
+      "compatibleWith": ["core:any", "core:data", "core:array"]
     }
   ],
   "settings": [
