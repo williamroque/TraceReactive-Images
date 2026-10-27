@@ -22,10 +22,10 @@ export class MontageNode extends BaseNode {
 
     readonly properties: PropertyDefinition[] = [
         { name: 'columns', label: 'Columns (0 for auto)', type: 'number', defaultValue: 0, min: 0 },
-        { name: 'padding', label: 'Tile padding (px)', type: 'style', styleType: 'size', category: 'style', defaultValue: 4, min: 0 },
-        { name: 'background', label: 'Background color', type: 'style', styleType: 'color', category: 'style', defaultValue: '#000000' },
-        { name: 'tileWidth', label: 'Tile width (0 for auto)', type: 'style', styleType: 'size', category: 'style', defaultValue: 0, min: 0 },
-        { name: 'tileHeight', label: 'Tile height (0 for auto)', type: 'style', styleType: 'size', category: 'style', defaultValue: 0, min: 0 }
+        { name: 'padding', label: 'Tile padding (px)', type: 'style', styleType: 'size', category: 'style', defaultValue: 'theme:com.tracereactive.images.montagePadding', min: 0 },
+        { name: 'background', label: 'Background color', type: 'style', styleType: 'color', category: 'style', defaultValue: 'theme:com.tracereactive.images.montageBackground' },
+        { name: 'tileWidth', label: 'Tile width (0 for auto)', type: 'style', styleType: 'size', category: 'style', defaultValue: 'theme:com.tracereactive.images.montageTileWidth', min: 0 },
+        { name: 'tileHeight', label: 'Tile height (0 for auto)', type: 'style', styleType: 'size', category: 'style', defaultValue: 'theme:com.tracereactive.images.montageTileHeight', min: 0 }
     ];
 
     async evaluate(inputs: Record<string, any>, properties: Record<string, any>): Promise<Record<string, any>> {
@@ -45,7 +45,8 @@ export class MontageNode extends BaseNode {
         const reqCols = Math.max(0, Math.floor(Number(properties['columns']) || 0));
         const cols = reqCols > 0 ? reqCols : Math.ceil(Math.sqrt(count));
         const rows = Math.ceil(count / cols);
-        const pad = Math.max(0, Math.floor(Number(properties['padding']) || 0));
+        const padRaw = properties['padding'];
+        const pad = Math.max(0, Math.floor(Number(padRaw) || (typeof padRaw === 'string' && padRaw.startsWith('theme:') ? 4 : 0)));
 
         const reqTW = Math.max(0, Math.floor(Number(properties['tileWidth']) || 0));
         const reqTH = Math.max(0, Math.floor(Number(properties['tileHeight']) || 0));
@@ -57,6 +58,7 @@ export class MontageNode extends BaseNode {
 
         let bgHex = String(properties['background'] || '#000000').trim().toLowerCase();
         if (bgHex.startsWith('custom:')) bgHex = bgHex.substring(7);
+        if (bgHex.startsWith('theme:')) bgHex = '#000000';
         let bgR = 0;
         let bgG = 0;
         let bgB = 0;

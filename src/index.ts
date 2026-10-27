@@ -20,6 +20,8 @@ import { ImageMathNode } from './nodes/math/ImageMathNode';
 import { FITSHeaderNode } from './nodes/fits/FITSHeaderNode';
 import { FITSTableNode } from './nodes/fits/FITSTableNode';
 
+import { ImageThemeSections } from './themes';
+
 declare const traceReactive: TraceReactiveAPI;
 
 registerBuiltinCodecs();
@@ -60,6 +62,7 @@ const serializableNodes = nodes.map(n => ({
 }));
 
 traceReactive.registerNodes(serializableNodes);
+traceReactive.registerThemeSections(ImageThemeSections);
 
 traceReactive.onEvaluateNode(async ({ typeId, inputs, properties }) => {
     const node = nodes.find(n => n.typeId === typeId);
