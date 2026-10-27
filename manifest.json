@@ -1,0 +1,38 @@
+{
+  "id": "com.tracereactive.images",
+  "name": "Images",
+  "version": "1.0.0",
+  "description": "Read, transform, analyze and export raster images, including FITS.",
+  "main": "dist/index.js",
+  "permissions": ["fs:read", "fs:write"],
+  "ioTypes": [
+    {
+      "id": "images:image",
+      "label": "Image",
+      "color": "#f59e0b",
+      "compatibleWith": ["core:any", "core:data"]
+    },
+    {
+      "id": "images:image-array",
+      "label": "Image Array",
+      "color": "#d97706",
+      "compatibleWith": ["core:any", "core:data"]
+    }
+  ],
+  "settings": [
+    {
+      "id": "maxPixels",
+      "label": "Max pixels per image",
+      "type": "number",
+      "default": 268435456,
+      "description": "Images larger than this are rejected to protect memory."
+    },
+    {
+      "id": "memoryBudgetMB",
+      "label": "Image memory budget (MB)",
+      "type": "number",
+      "default": 2048,
+      "description": "Least recently used images are evicted beyond this budget and recomputed on demand."
+    }
+  ]
+}

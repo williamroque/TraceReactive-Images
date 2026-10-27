@@ -1,0 +1,23 @@
+{
+  "name": "@tracereactive/images",
+  "version": "1.0.0",
+  "description": "TraceReactive Images package",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "esbuild src/index.ts --bundle --outfile=dist/index.js --platform=browser --format=iife --global-name=__TraceReactive_Package --external:@fxpineau/moc-wasm --loader:.wasm=empty",
+    "build:trpkg": "npm run build && node scripts/build-trpkg.js",
+    "typecheck": "tsc --noEmit",
+    "dev": "npm run build -- --watch"
+  },
+  "devDependencies": {
+    "@tracereactive/types": "file:../types",
+    "adm-zip": "^0.5.10",
+    "esbuild": "^0.25.0",
+    "typescript": "^5.7.3"
+  },
+  "dependencies": {
+    "fast-png": "^8.0.0",
+    "fflate": "^0.8.2",
+    "fitsjs-ng": "^1.0.2"
+  }
+}
