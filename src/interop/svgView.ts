@@ -1,6 +1,7 @@
 import { modelHasAlpha, modelIsColor, rangeOf, type TRImage } from '../model/image';
 import { colorChannelCount } from '../core/pixels';
 import { resolveInterval, stretchFn, type IntervalKind, type IntervalOptions, type StretchKind } from '../core/scale';
+import { getColormapLut, type ColormapName } from '../core/colormap';
 import { encodeRawPng } from '../codecs/png';
 import { toBase64 } from './base64';
 
@@ -10,6 +11,8 @@ export interface DisplayOptions {
     interval: IntervalKind;
     intervalOptions: IntervalOptions;
     gamma?: number;
+    colormap?: ColormapName;
+    invertColormap?: boolean;
 }
 
 interface Downsampled {
@@ -67,6 +70,10 @@ export function renderImagePng(image: TRImage, options: DisplayOptions): { png: 
         return Math.round(fn(clamped) * 255);
     };
 
+    const lut = !color && options.colormap && options.colormap !== 'greys'
+        ? getColormapLut(options.colormap, Boolean(options.invertColormap))
+        : null;
+
     for (let p = 0; p < pixels; p++) {
         const s = p * channels;
         const o = p * outChannels;
@@ -74,6 +81,12 @@ export function renderImagePng(image: TRImage, options: DisplayOptions): { png: 
             out[o] = map(src.data[s]);
             out[o + 1] = map(src.data[s + 1]);
             out[o + 2] = map(src.data[s + 2]);
+        } else if (lut) {
+            const g = map(src.data[s]);
+            const li = g * 3;
+            out[o] = lut[li];
+            out[o + 1] = lut[li + 1];
+            out[o + 2] = lut[li + 2];
         } else {
             const g = map(src.data[s]);
             out[o] = g;

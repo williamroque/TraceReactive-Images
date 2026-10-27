@@ -9,6 +9,7 @@ import { ShowImageNode } from './nodes/display/ShowImageNode';
 import { ConvertTypeNode } from './nodes/convert/ConvertTypeNode';
 import { ToGrayscaleNode } from './nodes/convert/ToGrayscaleNode';
 import { StretchNode } from './nodes/tone/StretchNode';
+import { ColormapNode } from './nodes/tone/ColormapNode';
 import { CropNode } from './nodes/geometry/CropNode';
 import { ResizeNode } from './nodes/geometry/ResizeNode';
 import { FlipNode } from './nodes/geometry/FlipNode';
@@ -31,6 +32,7 @@ const nodes = [
     new ConvertTypeNode(),
     new ToGrayscaleNode(),
     new StretchNode(),
+    new ColormapNode(),
     new CropNode(),
     new ResizeNode(),
     new FlipNode(),

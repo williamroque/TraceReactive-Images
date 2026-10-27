@@ -50,6 +50,34 @@ export class ShowImageNode extends RenderNode {
         { name: 'lo', label: 'Manual low', type: 'number', defaultValue: 0 },
         { name: 'hi', label: 'Manual high', type: 'number', defaultValue: 1 },
         { name: 'gamma', label: 'Gamma', type: 'number', defaultValue: 2.2, min: 0.1, step: 0.1 },
+        {
+            name: 'colormap',
+            label: 'Colormap (Grayscale)',
+            type: 'select',
+            defaultValue: 'greys',
+            options: [
+                { label: 'Grayscale (Default)', value: 'greys' },
+                { label: 'Viridis', value: 'viridis' },
+                { label: 'Plasma', value: 'plasma' },
+                { label: 'Inferno', value: 'inferno' },
+                { label: 'Magma', value: 'magma' },
+                { label: 'Turbo', value: 'turbo' },
+                { label: 'Cubehelix', value: 'cubehelix' },
+                { label: 'Coolwarm', value: 'coolwarm' },
+                { label: 'Heat / Thermal', value: 'heat' },
+                { label: 'Jet / Rainbow', value: 'jet' },
+                { label: 'Cool', value: 'cool' },
+                { label: 'Bone', value: 'bone' },
+                { label: 'Copper', value: 'copper' },
+                { label: 'Cividis', value: 'cividis' }
+            ]
+        },
+        {
+            name: 'invertColormap',
+            label: 'Invert Colormap',
+            type: 'boolean',
+            defaultValue: false
+        },
         { name: 'maxDim', label: 'Max display size (px)', type: 'number', defaultValue: 1024, min: 64, step: 64 }
     ];
 
@@ -67,7 +95,9 @@ export class ShowImageNode extends RenderNode {
                 pLow: Number(properties['pLow']),
                 pHigh: Number(properties['pHigh'])
             },
-            gamma: Number(properties['gamma']) || 2.2
+            gamma: Number(properties['gamma']) || 2.2,
+            colormap: String(properties['colormap'] || 'greys') as any,
+            invertColormap: Boolean(properties['invertColormap'])
         });
 
         const renderData = { type: 'core:svg', content };
