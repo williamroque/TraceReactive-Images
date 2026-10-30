@@ -1,7 +1,7 @@
-import type { NodeCategory } from '@tracereactive/types';
+import type { NodeCategory } from '@gravitydock/types';
 
 export const ImagesCategory: NodeCategory = {
     name: 'Images',
     accent: 'amber-400',
-    packageId: 'com.tracereactive.images'
+    packageId: 'com.gravitydock.images'
 };

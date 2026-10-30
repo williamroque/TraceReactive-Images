@@ -1,4 +1,4 @@
-import type { TraceReactiveAPI } from '@tracereactive/types';
+import type { GravityDockAPI } from '@gravitydock/types';
 import { registerBuiltinCodecs } from './codecs';
 import { initRuntime } from './runtime';
 import { unwrapInputs, wrapOutputs } from './transport';
@@ -22,7 +22,7 @@ import { FITSTableNode } from './nodes/fits/FITSTableNode';
 
 import { ImageThemeSections } from './themes';
 
-declare const traceReactive: TraceReactiveAPI;
+declare const gravityDock: GravityDockAPI;
 
 registerBuiltinCodecs();
 void initRuntime();
@@ -61,10 +61,10 @@ const serializableNodes = nodes.map(n => ({
     dynamicOutputs: n.dynamicOutputs
 }));
 
-traceReactive.registerNodes(serializableNodes);
-traceReactive.registerThemeSections(ImageThemeSections);
+gravityDock.registerNodes(serializableNodes);
+gravityDock.registerThemeSections(ImageThemeSections);
 
-traceReactive.onEvaluateNode(async ({ typeId, inputs, properties }) => {
+gravityDock.onEvaluateNode(async ({ typeId, inputs, properties }) => {
     const node = nodes.find(n => n.typeId === typeId);
     if (!node) {
         throw new Error(`Unknown node type: ${typeId}`);

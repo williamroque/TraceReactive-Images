@@ -1,7 +1,7 @@
-import type { TraceReactiveAPI } from '@tracereactive/types';
+import type { GravityDockAPI } from '@gravitydock/types';
 import { fromBinaryString } from '../interop/base64';
 
-declare const traceReactive: TraceReactiveAPI;
+declare const gravityDock: GravityDockAPI;
 
 function toBytes(raw: any): Uint8Array {
     if (typeof raw === 'string') return fromBinaryString(raw);
@@ -12,10 +12,10 @@ function toBytes(raw: any): Uint8Array {
 }
 
 export async function readBytes(path: string): Promise<Uint8Array> {
-    const raw = await traceReactive.fs.readFile(path, null as any);
+    const raw = await gravityDock.fs.readFile(path, null as any);
     return toBytes(raw);
 }
 
 export async function writeBytes(path: string, bytes: Uint8Array): Promise<void> {
-    await traceReactive.fs.writeFile(path, bytes);
+    await gravityDock.fs.writeFile(path, bytes);
 }

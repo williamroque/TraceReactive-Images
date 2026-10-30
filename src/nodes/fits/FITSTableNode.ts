@@ -1,5 +1,5 @@
-import { ExecuteNode } from '@tracereactive/types';
-import type { InputDefinition, OutputDefinition, PropertyDefinition } from '@tracereactive/types';
+import { ExecuteNode } from '@gravitydock/types';
+import type { InputDefinition, OutputDefinition, PropertyDefinition } from '@gravitydock/types';
 import { FITS } from 'fitsjs-ng';
 import { ImagesCategory } from '../../categories';
 import { errorTable, toTable } from '../../interop/dataframe';

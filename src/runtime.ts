@@ -1,12 +1,12 @@
-import type { TraceReactiveAPI } from '@tracereactive/types';
+import type { GravityDockAPI } from '@gravitydock/types';
 import { imageStore } from './model/store';
 
-declare const traceReactive: TraceReactiveAPI;
+declare const gravityDock: GravityDockAPI;
 
 export const limits = { maxPixels: 268435456 };
 
 export async function initRuntime(): Promise<void> {
-    const settings = (traceReactive as any).settings;
+    const settings = (gravityDock as any).settings;
     if (!settings || typeof settings.get !== 'function') return;
     try {
         const maxPixels = Number(await settings.get('maxPixels'));

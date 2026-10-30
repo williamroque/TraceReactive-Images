@@ -1,5 +1,5 @@
-import { BaseNode } from '@tracereactive/types';
-import type { InputDefinition, OutputDefinition, PropertyDefinition } from '@tracereactive/types';
+import { BaseNode } from '@gravitydock/types';
+import type { InputDefinition, OutputDefinition, PropertyDefinition } from '@gravitydock/types';
 import { ImagesCategory } from '../../categories';
 import { applyColormap, type ColormapName } from '../../core/colormap';
 import type { IntervalKind, StretchKind } from '../../core/scale';

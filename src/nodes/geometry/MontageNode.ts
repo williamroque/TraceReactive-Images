@@ -1,5 +1,5 @@
-import { BaseNode } from '@tracereactive/types';
-import type { InputDefinition, OutputDefinition, PropertyDefinition } from '@tracereactive/types';
+import { BaseNode } from '@gravitydock/types';
+import type { InputDefinition, OutputDefinition, PropertyDefinition } from '@gravitydock/types';
 import { ImagesCategory } from '../../categories';
 import { resizeBilinear } from '../../core/geometry';
 import { toTable } from '../../interop/dataframe';
@@ -22,10 +22,10 @@ export class MontageNode extends BaseNode {
 
     readonly properties: PropertyDefinition[] = [
         { name: 'columns', label: 'Columns (0 for auto)', type: 'number', defaultValue: 0, min: 0 },
-        { name: 'padding', label: 'Tile padding (px)', type: 'style', styleType: 'size', category: 'style', defaultValue: 'theme:com.tracereactive.images.montagePadding', min: 0 },
-        { name: 'background', label: 'Background color', type: 'style', styleType: 'color', category: 'style', defaultValue: 'theme:com.tracereactive.images.montageBackground' },
-        { name: 'tileWidth', label: 'Tile width (0 for auto)', type: 'style', styleType: 'size', category: 'style', defaultValue: 'theme:com.tracereactive.images.montageTileWidth', min: 0 },
-        { name: 'tileHeight', label: 'Tile height (0 for auto)', type: 'style', styleType: 'size', category: 'style', defaultValue: 'theme:com.tracereactive.images.montageTileHeight', min: 0 }
+        { name: 'padding', label: 'Tile padding (px)', type: 'style', styleType: 'size', category: 'style', defaultValue: 'theme:com.gravitydock.images.montagePadding', min: 0 },
+        { name: 'background', label: 'Background color', type: 'style', styleType: 'color', category: 'style', defaultValue: 'theme:com.gravitydock.images.montageBackground' },
+        { name: 'tileWidth', label: 'Tile width (0 for auto)', type: 'style', styleType: 'size', category: 'style', defaultValue: 'theme:com.gravitydock.images.montageTileWidth', min: 0 },
+        { name: 'tileHeight', label: 'Tile height (0 for auto)', type: 'style', styleType: 'size', category: 'style', defaultValue: 'theme:com.gravitydock.images.montageTileHeight', min: 0 }
     ];
 
     async evaluate(inputs: Record<string, any>, properties: Record<string, any>): Promise<Record<string, any>> {

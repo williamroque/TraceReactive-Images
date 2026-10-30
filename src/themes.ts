@@ -1,9 +1,9 @@
-import type { ThemeSection } from '@tracereactive/types';
+import type { ThemeSection } from '@gravitydock/types';
 
 export const ImageThemeSections: ThemeSection[] = [
     {
         name: 'Images: Montage',
-        packageId: 'com.tracereactive.images',
+        packageId: 'com.gravitydock.images',
         variables: [
             {
                 key: 'montagePadding',
@@ -11,7 +11,7 @@ export const ImageThemeSections: ThemeSection[] = [
                 type: 'number',
                 defaultValue: '4',
                 section: 'Images: Montage',
-                packageId: 'com.tracereactive.images'
+                packageId: 'com.gravitydock.images'
             },
             {
                 key: 'montageBackground',
@@ -19,7 +19,7 @@ export const ImageThemeSections: ThemeSection[] = [
                 type: 'color',
                 defaultValue: '#000000',
                 section: 'Images: Montage',
-                packageId: 'com.tracereactive.images'
+                packageId: 'com.gravitydock.images'
             },
             {
                 key: 'montageTileWidth',
@@ -27,7 +27,7 @@ export const ImageThemeSections: ThemeSection[] = [
                 type: 'number',
                 defaultValue: '0',
                 section: 'Images: Montage',
-                packageId: 'com.tracereactive.images'
+                packageId: 'com.gravitydock.images'
             },
             {
                 key: 'montageTileHeight',
@@ -35,7 +35,7 @@ export const ImageThemeSections: ThemeSection[] = [
                 type: 'number',
                 defaultValue: '0',
                 section: 'Images: Montage',
-                packageId: 'com.tracereactive.images'
+                packageId: 'com.gravitydock.images'
             }
         ]
     }

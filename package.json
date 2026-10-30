@@ -1,16 +1,16 @@
 {
-  "name": "@tracereactive/images",
+  "name": "@gravitydock/images",
   "version": "1.0.0",
-  "description": "TraceReactive Images package",
+  "description": "Gravity Dock Images package",
   "main": "dist/index.js",
   "scripts": {
-    "build": "esbuild src/index.ts --bundle --outfile=dist/index.js --platform=browser --format=iife --global-name=__TraceReactive_Package --external:@fxpineau/moc-wasm --loader:.wasm=empty",
-    "build:trpkg": "npm run build && node scripts/build-trpkg.js",
+    "build": "esbuild src/index.ts --bundle --outfile=dist/index.js --platform=browser --format=iife --global-name=__Gravity Dock_Package --external:@fxpineau/moc-wasm --loader:.wasm=empty",
+    "build:gdpkg": "npm run build && node scripts/build-gdpkg.js",
     "typecheck": "tsc --noEmit",
     "dev": "npm run build -- --watch"
   },
   "devDependencies": {
-    "@tracereactive/types": "file:../types",
+    "@gravitydock/types": "file:../types",
     "adm-zip": "^0.5.10",
     "esbuild": "^0.25.0",
     "typescript": "^5.7.3"

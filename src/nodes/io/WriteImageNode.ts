@@ -1,5 +1,5 @@
-import { ExecuteNode } from '@tracereactive/types';
-import type { InputDefinition, OutputDefinition, PropertyDefinition } from '@tracereactive/types';
+import { ExecuteNode } from '@gravitydock/types';
+import type { InputDefinition, OutputDefinition, PropertyDefinition } from '@gravitydock/types';
 import { ImagesCategory } from '../../categories';
 import { codecForExtension, getCodec } from '../../codecs/registry';
 import { prepareForEncode, type MismatchPolicy } from '../../core/convert';
