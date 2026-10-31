@@ -8,6 +8,7 @@ import { ImageInfoNode } from './nodes/io/ImageInfoNode';
 import { ShowImageNode } from './nodes/display/ShowImageNode';
 import { ConvertTypeNode } from './nodes/convert/ConvertTypeNode';
 import { ToGrayscaleNode } from './nodes/convert/ToGrayscaleNode';
+import { RasterizeNode } from './nodes/convert/RasterizeNode';
 import { StretchNode } from './nodes/tone/StretchNode';
 import { ColormapNode } from './nodes/tone/ColormapNode';
 import { CropNode } from './nodes/geometry/CropNode';
@@ -34,6 +35,7 @@ const nodes = [
     new ShowImageNode(),
     new ConvertTypeNode(),
     new ToGrayscaleNode(),
+    new RasterizeNode(),
     new StretchNode(),
     new ColormapNode(),
     new CropNode(),
